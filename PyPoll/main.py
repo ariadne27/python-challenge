@@ -19,15 +19,19 @@ with open(csvpath, newline='') as csvfile:
     csv_header = next(csvreader)
     
 
-    # Read each row of data after the header
+    #create placeholder values for counts
     count = 0
     runtot = 0
     kcount = 0
     ccount = 0
     lcount = 0
-    ocount = 0 # O'Tooley
+    ocount = 0 
+
+    # Read each row of data after the header
     for row in csvreader:
+        #add one to the count(vote count) for each row
         count = count + 1
+        #add one to the count for each candiate if their name appears in the 3rd element of each row
         if row[2] == "Khan":
             kcount = kcount + 1
         if row[2] == "Correy":
@@ -36,6 +40,7 @@ with open(csvpath, newline='') as csvfile:
             lcount = lcount + 1
         if row[2] == "O'Tooley":
             ocount = ocount + 1
+#this is a clunky approach, but compares vote count and declares winner 
 if kcount > ccount and kcount > lcount and kcount > ocount:
     winner = "Khan"
 if ccount > kcount and ccount > lcount and ccount > ocount:
@@ -45,6 +50,7 @@ if lcount > kcount and lcount > ccount and lcount > ocount:
 if ocount > kcount and ocount > ccount and ocount > lcount:
     winner = "O'Tooley"
 
+#print results
 print("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(count))
@@ -57,6 +63,7 @@ print("-------------------------")
 print("Winner: " + winner)
 print("-------------------------")
 
+#create path to output folder
 output_path = os.path.join(".", "output", "election_results.txt")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
