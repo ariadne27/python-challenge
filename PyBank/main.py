@@ -72,6 +72,7 @@ print("Greatest Decrease in Profits: " + mindate + " ($" + str(diffmin) + ")")
 #create path to output folder
 output_path = os.path.join(".", "output", "banking_results.txt")
 
+# Create new text file to hold output 
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, "w", newline="") as results:
     #Linux/Unix line endings

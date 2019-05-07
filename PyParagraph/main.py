@@ -1,6 +1,5 @@
 import re
 import os
-#WORK ON READING LIKE THE CSV EXAMPLES
 docpath = input("Which file would you like to read?  Choose 1 or 2 ")
 doc = os.path.join(".", "Resources", "paragraph_" + str(docpath) + ".txt")
 print("You choose: " + doc)
